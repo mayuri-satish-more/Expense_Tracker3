@@ -20,7 +20,7 @@ The application helps users manage their personal finances by tracking income an
 ## 📂 GitHub Repository
 
 
-[Add Frontend GitHub Repository URL here]
+https://github.com/mayuri-satish-more/Expense_Tracker3.git
 
 ---
 
