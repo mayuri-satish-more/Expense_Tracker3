@@ -337,8 +337,7 @@ Backend ownership checks ensure that users can access only their own financial r
 * VS Code
 * MongoDB Atlas
 * Vite
-* Render / Railway
-* Vercel / Netlify
+* Render
 
 ---
 
@@ -822,15 +821,15 @@ University of Mumbai
 
 ### GitHub
 
-[Add GitHub Profile URL]
+[https://github.com/mayuri-satish-more ]
 
 ### LinkedIn
 
-[Add LinkedIn Profile URL]
+[https://www.linkedin.com/in/mayuri-more-01j05]
 
 ### Portfolio
 
-[Add Portfolio URL]
+[https://expense-tracker3-frontend.onrender.com/]
 
 ---
 
