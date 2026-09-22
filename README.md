@@ -10,10 +10,10 @@ The application helps users manage their personal finances by tracking income an
 ## 🚀 Live Demo
 
 **Frontend:**
-[Add deployed frontend URL here]
+[https://expense-tracker3-frontend.onrender.com/]
 
 **Backend API:**
-[Add deployed backend URL here]
+[https://expense-tracker3-backend.onrender.com/]
 
 ---
 
