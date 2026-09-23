@@ -1003,9 +1003,6 @@ export default AddTransaction;
 //     }));
 //   };
 
-//   // ==========================================
-//   // HANDLE ATTACHMENT
-//   // ==========================================
 //   const handleAttachmentChange = (e) => {
 //     const file = e.target.files?.[0];
 
@@ -1042,9 +1039,6 @@ export default AddTransaction;
 //     setAttachment(file);
 //   };
 
-//   // ==========================================
-//   // REMOVE ATTACHMENT
-//   // ==========================================
 //   const removeAttachment = () => {
 //     setAttachment(null);
 //   };
@@ -1465,9 +1459,6 @@ export default AddTransaction;
 
 //           </div>
 
-//           {/* ==========================================
-//               ATTACHMENT
-//           ========================================== */}
 //           <div>
 
 //             <label className="block text-sm font-semibold text-slate-700 mb-2">
@@ -1725,9 +1716,7 @@ export default AddTransaction;
 
 //   const [deletingId, setDeletingId] = useState(null);
 
-//   // ==========================================
-//   // LOAD TRANSACTIONS
-//   // ==========================================
+//   
 
 //   const loadTransactions = async () => {
 //     try {
@@ -1819,9 +1808,6 @@ export default AddTransaction;
 //     filters.maxAmount,
 //   ]);
 
-//   // ==========================================
-//   // DELETE TRANSACTION
-//   // ==========================================
 
 //   const handleDelete = async (id) => {
 //     const confirmDelete = window.confirm(
@@ -1857,9 +1843,6 @@ export default AddTransaction;
 //     }
 //   };
 
-//   // ==========================================
-//   // FILTER CHANGE
-//   // ==========================================
 
 //   const handleFilterChange = (e) => {
 //     const { name, value } = e.target;
@@ -1875,9 +1858,6 @@ export default AddTransaction;
 //     }));
 //   };
 
-//   // ==========================================
-//   // CLEAR FILTERS
-//   // ==========================================
 
 //   const clearFilters = () => {
 //     setFilters({
@@ -1898,9 +1878,6 @@ export default AddTransaction;
 //     }));
 //   };
 
-//   // ==========================================
-//   // CSV EXPORT
-//   // ==========================================
 
 //   const handleExport = async () => {
 //     try {
@@ -1983,9 +1960,6 @@ export default AddTransaction;
 //     }
 //   };
 
-//   // ==========================================
-//   // FORMAT DATE
-//   // ==========================================
 
 //   const formatDate = (date) => {
 //     if (!date) {
@@ -2002,9 +1976,6 @@ export default AddTransaction;
 //     );
 //   };
 
-//   // ==========================================
-//   // FORMAT AMOUNT
-//   // ==========================================
 
 //   const formatAmount = (amount) => {
 //     return Number(amount || 0).toLocaleString(
@@ -2016,18 +1987,12 @@ export default AddTransaction;
 //     );
 //   };
 
-//   // ==========================================
-//   // GET ACTIVE FILTER COUNT
-//   // ==========================================
 
 //   const activeFilterCount =
 //     Object.values(filters).filter(
 //       (value) => value !== ""
 //     ).length;
 
-//   // ==========================================
-//   // LOADING
-//   // ==========================================
 
 //   if (loading && transactions.length === 0) {
 //     return (
@@ -2060,9 +2025,6 @@ export default AddTransaction;
 //   return (
 //     <div className="max-w-7xl mx-auto">
 
-//       {/* ==========================================
-//           HEADER
-//       ========================================== */}
 
 //       <div className="mb-8 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5">
 
@@ -2110,9 +2072,6 @@ export default AddTransaction;
 
 //       </div>
 
-//       {/* ==========================================
-//           SEARCH + FILTER
-//       ========================================== */}
 
 //       <div className="bg-white border border-slate-200 rounded-3xl p-4 mb-5">
 
@@ -2334,10 +2293,6 @@ export default AddTransaction;
 
 //       </div>
 
-//       {/* ==========================================
-//           TRANSACTIONS CARD
-//       ========================================== */}
-
 //       <div className="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
 
 //         {/* DESKTOP HEADER */}
@@ -2369,10 +2324,6 @@ export default AddTransaction;
 //           </div>
 
 //         </div>
-
-//         {/* ==========================================
-//             EMPTY
-//         ========================================== */}
 
 //         {transactions.length === 0 ? (
 //           <div className="p-12 text-center">
@@ -2418,9 +2369,6 @@ export default AddTransaction;
 //                     className="border-b border-slate-100 last:border-b-0"
 //                   >
 
-//                     {/* ==========================================
-//                         DESKTOP ROW
-//                     ========================================== */}
 
 //                     <div className="hidden lg:grid grid-cols-[2fr_1fr_1fr_1fr_auto_auto] gap-4 items-center px-5 py-4 hover:bg-slate-50 transition">
 
@@ -2579,9 +2527,6 @@ export default AddTransaction;
 
 //                     </div>
 
-//                     {/* ==========================================
-//                         MOBILE ROW
-//                     ========================================== */}
 
 //                     <div className="lg:hidden p-4">
 
@@ -2735,9 +2680,6 @@ export default AddTransaction;
 //           </div>
 //         )}
 
-//         {/* ==========================================
-//             PAGINATION
-//         ========================================== */}
 
 //         {transactions.length > 0 && (
 //           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-5 py-4 bg-slate-50">
