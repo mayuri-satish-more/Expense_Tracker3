@@ -700,9 +700,6 @@ import Account from "../models/Account.js";
 import { uploadToCloudinary } from "../utils/uploadToCloudinary.js";
 import { calculateNextOccurrence } from "../utils/recurringUtils.js";
 
-// ======================================================
-// CREATE TRANSACTION
-// ======================================================
 export const createTransaction = async (req, res) => {
   try {
     const {
@@ -838,9 +835,6 @@ export const createTransaction = async (req, res) => {
   }
 };
 
-// ======================================================
-// GET TRANSACTIONS
-// ======================================================
 export const getTransactions = async (req, res) => {
   try {
     const {
@@ -972,9 +966,6 @@ export const getTransactions = async (req, res) => {
   }
 };
 
-// ======================================================
-// GET SINGLE TRANSACTION
-// ======================================================
 export const getTransactionById = async (
   req,
   res
@@ -1012,9 +1003,6 @@ export const getTransactionById = async (
   }
 };
 
-// ======================================================
-// UPDATE TRANSACTION
-// ======================================================
 // export const updateTransaction = async (
 //   req,
 //   res
@@ -1117,9 +1105,6 @@ export const getTransactionById = async (
 //         isActive: true,
 //       });
 
-//     // --------------------------------------------------
-//     // Revert old transaction effect
-//     // --------------------------------------------------
 //     if (oldAccount) {
 //       if (oldType === "Income") {
 //         oldAccount.balance -= oldAmount;
@@ -1130,9 +1115,7 @@ export const getTransactionById = async (
 //       await oldAccount.save();
 //     }
 
-//     // --------------------------------------------------
-//     // Check new expense balance
-//     // --------------------------------------------------
+//    
 //     if (newType === "Expense") {
 //       if (newAccount.balance < newAmount) {
 //         // Restore old account balance because we already
@@ -1155,9 +1138,7 @@ export const getTransactionById = async (
 //       }
 //     }
 
-//     // --------------------------------------------------
-//     // Apply new transaction effect
-//     // --------------------------------------------------
+//   
 //     if (newType === "Income") {
 //       newAccount.balance += newAmount;
 //     } else {
@@ -1186,9 +1167,7 @@ export const getTransactionById = async (
 //   newAttachmentUrl = uploadResult.secure_url;
 // }
 
-//     // --------------------------------------------------
-//     // Update transaction fields
-//     // --------------------------------------------------
+//   
 //     transaction.amount = newAmount;
 //     transaction.type = newType;
 
@@ -1222,9 +1201,6 @@ export const getTransactionById = async (
 //         ? finalRecurringFrequency
 //         : null;
 
-//     // --------------------------------------------------
-//     // Recurring next occurrence
-//     // --------------------------------------------------
 //     if (transaction.isRecurring) {
 //       transaction.nextOccurrence =
 //         calculateNextOccurrence(
@@ -1266,9 +1242,7 @@ export const getTransactionById = async (
 
 
 
-// ======================================================
-// UPDATE TRANSACTION
-// ======================================================
+
 export const updateTransaction = async (req, res) => {
   try {
     const transaction = await Transaction.findOne({
@@ -1299,9 +1273,7 @@ export const updateTransaction = async (req, res) => {
       removeAttachment,
     } = req.body;
 
-    // --------------------------------------------------
-    // Determine new values
-    // --------------------------------------------------
+    
 
     const newAmount =
       amount !== undefined
@@ -1328,9 +1300,6 @@ export const updateTransaction = async (req, res) => {
       });
     }
 
-    // --------------------------------------------------
-    // Verify new account belongs to user
-    // --------------------------------------------------
 
     const newAccount = await Account.findOne({
       _id: newAccountId,
@@ -1344,9 +1313,6 @@ export const updateTransaction = async (req, res) => {
       });
     }
 
-    // --------------------------------------------------
-    // Recurring validation
-    // --------------------------------------------------
 
     const finalIsRecurring =
       isRecurring !== undefined
@@ -1369,9 +1335,6 @@ export const updateTransaction = async (req, res) => {
       });
     }
 
-    // --------------------------------------------------
-    // Find old account
-    // --------------------------------------------------
 
     const oldAccount = await Account.findOne({
       _id: oldAccountId,
@@ -1379,9 +1342,7 @@ export const updateTransaction = async (req, res) => {
       isActive: true,
     });
 
-    // --------------------------------------------------
-    // Revert old transaction effect
-    // --------------------------------------------------
+    
 
     if (oldAccount) {
       if (oldType === "Income") {
@@ -1393,9 +1354,6 @@ export const updateTransaction = async (req, res) => {
       await oldAccount.save();
     }
 
-    // --------------------------------------------------
-    // Check new expense balance
-    // --------------------------------------------------
 
     if (newType === "Expense") {
       if (newAccount.balance < newAmount) {
@@ -1418,9 +1376,6 @@ export const updateTransaction = async (req, res) => {
       }
     }
 
-    // --------------------------------------------------
-    // Apply new transaction effect
-    // --------------------------------------------------
 
     if (newType === "Income") {
       newAccount.balance += newAmount;
@@ -1430,9 +1385,7 @@ export const updateTransaction = async (req, res) => {
 
     await newAccount.save();
 
-    // --------------------------------------------------
-    // HANDLE ATTACHMENT
-    // --------------------------------------------------
+   
 
     let newAttachmentUrl =
       transaction.attachment || null;
@@ -1455,9 +1408,7 @@ export const updateTransaction = async (req, res) => {
         uploadResult.secure_url;
     }
 
-    // --------------------------------------------------
-    // Update transaction fields
-    // --------------------------------------------------
+   
 
     transaction.amount = newAmount;
     transaction.type = newType;
@@ -1483,9 +1434,6 @@ export const updateTransaction = async (req, res) => {
     transaction.attachment =
       newAttachmentUrl;
 
-    // --------------------------------------------------
-    // Recurring transaction
-    // --------------------------------------------------
 
     transaction.isRecurring =
       finalIsRecurring;
@@ -1505,15 +1453,10 @@ export const updateTransaction = async (req, res) => {
       transaction.nextOccurrence = null;
     }
 
-    // --------------------------------------------------
-    // Save transaction
-    // --------------------------------------------------
 
     await transaction.save();
 
-    // --------------------------------------------------
-    // Populate updated transaction
-    // --------------------------------------------------
+   
 
     const updatedTransaction =
       await Transaction.findById(
@@ -1543,9 +1486,6 @@ export const updateTransaction = async (req, res) => {
   }
 };
 
-// ======================================================
-// DELETE TRANSACTION
-// ======================================================
 export const deleteTransaction = async (
   req,
   res
@@ -1606,9 +1546,6 @@ export const deleteTransaction = async (
   }
 };
 
-// ======================================================
-// EXPORT TRANSACTIONS CSV
-// ======================================================
 export const exportTransactionsCSV = async (
   req,
   res
