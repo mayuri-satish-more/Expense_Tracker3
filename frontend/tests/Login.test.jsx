@@ -91,13 +91,7 @@ describe("Login Component", () => {
 
     fireEvent.click(signInButton);
 
-    /*
-      Login.jsx directly calls:
-      toast.error("Please fill in all fields")
-
-      Since the component was already imported before
-      the ESM mock, we test the visible behavior instead.
-    */
+   
 
     expect(
       screen.getByPlaceholderText("you@example.com")
